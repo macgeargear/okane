@@ -1,7 +1,7 @@
+import { STOCK_SCREENER_URL, STOCK_STATEMENT_URL } from "@/config";
+import { Fetch } from "@/lib/utils";
+
 export async function GET(req: Request) {
-  const response = await fetch("");
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
+    const data = await Fetch(`${STOCK_STATEMENT_URL}`)
   return Response.json("");
 }

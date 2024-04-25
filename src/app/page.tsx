@@ -1,10 +1,12 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import StockSegmentCard from "@/components/stock/StockSectorCard";
+import StockSectorList from "@/components/stock/StockSectorList";
 import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <MaxWidthWrapper className="ontainer my-60">
+      <MaxWidthWrapper className="container grid place-content-center">
         <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             Welcome to Okane{" "}
@@ -25,7 +27,10 @@ export default function Home() {
       </MaxWidthWrapper>
       <section className="border-t border-gray-200 bg-gray-50">
         <MaxWidthWrapper className="py-20">
-          <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0"></div>
+          <h1 className="text-2xl font-medium text-center mb-12">
+            See segments
+          </h1>
+          <StockSectorList />
         </MaxWidthWrapper>
       </section>
     </>

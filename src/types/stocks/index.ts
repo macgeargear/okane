@@ -98,3 +98,49 @@ export interface StockProfile {
   isAdr: boolean;
   isFund: boolean;
 }
+
+export type SectorsPerfomance = {
+  sector: string;
+  changesPercentage: string;
+};
+
+type Sectors =
+  | "Basic Materials"
+  | "Communication Services"
+  | "Consumer Cyclical"
+  | "Consumer Defensive"
+  | "Energy"
+  | "Financial Services"
+  | "Healthcare"
+  | "Industrials"
+  | "Utilities";
+
+export const sectorLists = [
+  "Basic Materials",
+  "Communication Services",
+  "Consumer Cyclical",
+  "Consumer Defensive",
+  "Energy",
+  "Financial Services",
+  "Healthcare",
+  "Industrials",
+  "Utilities",
+];
+
+export interface StockScreenerResult {
+  symbol: string;
+  companyName: string;
+  marketCap: number;
+  sector: string;
+  industry: string;
+  beta: number;
+  price: number;
+  lastAnnualDividend: number;
+  volume: number;
+  exchange: string;
+  exchangeShortName: string;
+  country: string;
+  isEtf: boolean;
+  isFund: boolean;
+  isActivelyTrading: boolean;
+}
