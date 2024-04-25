@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { formatPrice } from "@/lib/utils";
-import { StockList, StockScreenerResult } from "@/types/stocks";
+import { StockScreenerResult } from "@/types/stocks";
 import { HoverCard } from "@radix-ui/react-hover-card";
 import { ColumnDef } from "@tanstack/react-table";
 

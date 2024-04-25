@@ -5,7 +5,6 @@ import useStockScreener from "@/hooks/query/useStockScreener";
 
 export default function StocksLists() {
   const { data, error, isLoading } = useStockScreener();
-  console.log(data);
 
   if (error) throw new Error(error.message);
   if (isLoading) return <div>Loading...</div>;
