@@ -2,6 +2,7 @@
 import { DataTable } from "./data-table";
 import { columns } from "./column";
 import useStockScreener from "@/hooks/query/useStockScreener";
+import { DataTablePagination } from "./data-table-pagination";
 
 export default function StocksLists() {
   const { data, error, isLoading } = useStockScreener();
