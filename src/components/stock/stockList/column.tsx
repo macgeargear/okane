@@ -1,15 +1,24 @@
 "use client";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { formatPrice } from "@/lib/utils";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { cn, formatPrice } from "@/lib/utils";
 import { StockScreenerResult } from "@/types/stocks";
-import { HoverCard } from "@radix-ui/react-hover-card";
 import { ColumnDef } from "@tanstack/react-table";
 
 import { ArrowUpDown, CircleX, SearchCheck } from "lucide-react";
+import Link from "next/link";
 
 export const columns: ColumnDef<StockScreenerResult>[] = [
   {
@@ -44,14 +53,14 @@ export const columns: ColumnDef<StockScreenerResult>[] = [
       };
       return (
         <div className="text-right font-medium">
-          <HoverCard>
-            <HoverCardTrigger asChild>
+          <Popover>
+            <PopoverTrigger asChild>
               <Button variant="secondary" className="hover:bg-slate-300">
                 {symbol}
               </Button>
-            </HoverCardTrigger>
-            <HoverCardContent className="w-80">
-              <div className="flex justify-between space-x-4">
+            </PopoverTrigger>
+            <PopoverContent className="w-80">
+              <div className="flex justify-between space-x-4 ">
                 <Avatar>
                   <AvatarImage src={`https://github.com/${symbol}`} />
                   <AvatarFallback>{symbol[0]}</AvatarFallback>
@@ -61,8 +70,19 @@ export const columns: ColumnDef<StockScreenerResult>[] = [
                   <p className="text-sm">{companyName}</p>
                 </div>
               </div>
-            </HoverCardContent>
-          </HoverCard>
+              <div className="flex justify-between items-center mt-4">
+                <Link
+                  className={cn(
+                    buttonVariants({ size: "sm", variant: "link" })
+                  )}
+                  href={`/company/${symbol}`}
+                >
+                  see more details
+                </Link>
+                <Button size="sm">add to my list</Button>
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
       );
     },

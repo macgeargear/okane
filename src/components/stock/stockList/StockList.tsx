@@ -1,7 +1,7 @@
 "use client";
 import { DataTable } from "./data-table";
 import { columns } from "./column";
-import useStockScreener from "@/hooks/query/useStockScreener";
+import useStockScreener from "@/hooks/query/stock/useStockScreener";
 
 export default function StocksLists() {
   const { data, error, isLoading } = useStockScreener();
