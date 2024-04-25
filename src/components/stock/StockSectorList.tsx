@@ -1,4 +1,8 @@
 "use client";
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 import useSectorPerformance from "@/hooks/query/useSectorPerformance";
 import React from "react";
 import StockSectorCard from "./StockSectorCard";
