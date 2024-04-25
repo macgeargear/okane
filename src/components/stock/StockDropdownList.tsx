@@ -16,11 +16,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ScrollArea } from "../ui/scroll-area";
-import { getStockData } from "@/lib/query/stock/getStockData";
-import useStockData from "@/hooks/query/useStockData";
+import { getStockList } from "@/lib/query/stock/getStockData";
+import useStockLists from "@/hooks/query/useStockLists";
 
 export function StockDropdownList() {
-  const { data: stockList, error, isLoading } = useStockData();
+  const { data: stockList, error, isLoading } = useStockLists();
   if (isLoading) return <div>Loading...</div>;
 
   return (

@@ -1,10 +1,10 @@
 import { StockList } from "@/types/stocks";
-import { getStockData } from "@/lib/query/stock/getStockData";
 import { useQuery } from "@tanstack/react-query";
+import { Fetch } from "@/lib/utils";
 
-export default function useStockData(symbol: string = "") {
+export default function useStockLists(symbol: string = "") {
   return useQuery<StockList[]>({
     queryKey: ["stock", symbol],
-    queryFn: getStockData,
+    queryFn: () => Fetch("/api/stocks/lists"),
   });
 }
