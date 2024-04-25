@@ -9,15 +9,7 @@ import { StockScreenerResult } from "@/types/stocks";
 import { HoverCard } from "@radix-ui/react-hover-card";
 import { ColumnDef } from "@tanstack/react-table";
 
-import {
-  ArrowUpDown,
-  Circle,
-  CircleX,
-  MoreHorizontal,
-  SearchCheck,
-  TurtleIcon,
-} from "lucide-react";
-import { symbol } from "zod";
+import { ArrowUpDown, CircleX, SearchCheck } from "lucide-react";
 
 export const columns: ColumnDef<StockScreenerResult>[] = [
   {
