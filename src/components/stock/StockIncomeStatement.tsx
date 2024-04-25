@@ -1,6 +1,6 @@
 "use client";
 
-import useStockIncomeStatement from "@/hooks/query/useStockIncomeStatement";
+import useStockIncomeStatement from "@/hooks/query/stock/useStockIncomeStatement";
 import React from "react";
 
 export default function StockIncomeStatement() {
