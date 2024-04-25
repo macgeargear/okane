@@ -1,10 +1,14 @@
-import { StockList, StockScreenerResult } from "@/types/stocks";
+import { stockScreenReq } from "./../../lib/schema/stock/index";
+import { StockScreenerResult } from "@/types/stocks";
 import { useQuery } from "@tanstack/react-query";
 import { Fetch } from "@/lib/utils";
 
-export default function useStockLists(symbol: string = "") {
+export default function useStockScreener(stockScreenReq?: stockScreenReq) {
   return useQuery<StockScreenerResult[]>({
-    queryKey: ["stock", symbol],
-    queryFn: () => Fetch("/api/stocks/lists"),
+    queryKey: ["stock", stockScreenReq],
+    queryFn: () =>
+      Fetch("/api/stocks/screener", {
+        body: JSON.stringify(stockScreenReq),
+      }),
   });
 }

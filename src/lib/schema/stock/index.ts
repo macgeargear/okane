@@ -20,3 +20,5 @@ export const stockScreenerSchema = z.object({
   exchange: z.string().nullable(),
   limit: z.number().min(1).nullable(),
 });
+
+export type stockScreenReq = z.infer<typeof stockScreenerSchema>;

@@ -1,5 +1,5 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import StockSegmentCard from "@/components/stock/StockSectorCard";
+import StockSectorCard from "@/components/stock/StockSectorCard";
 import StockSectorList from "@/components/stock/StockSectorList";
 import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
@@ -28,7 +28,7 @@ export default function Home() {
       <section className="border-t border-gray-200 bg-gray-50">
         <MaxWidthWrapper className="py-20">
           <h1 className="text-2xl font-medium text-center mb-12">
-            See segments
+            Browse segments
           </h1>
           <StockSectorList />
         </MaxWidthWrapper>

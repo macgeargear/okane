@@ -104,7 +104,7 @@ export type SectorsPerfomance = {
   changesPercentage: string;
 };
 
-type Sectors =
+export type Sectors =
   | "Basic Materials"
   | "Communication Services"
   | "Consumer Cyclical"

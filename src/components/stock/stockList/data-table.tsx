@@ -10,8 +10,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { Checkbox } from "@/components/ui/checkbox";
-
 import {
   ColumnDef,
   flexRender,
@@ -70,12 +68,14 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex items-center gap-4 lg:gap-0 py-4 mx-4">
+      <div className="flex items-center gap-4 lg:gap-0 py-2 mx-2">
         <Input
           placeholder="Filter name..."
-          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
+          value={
+            (table.getColumn("metadata")?.getFilterValue() as string) ?? ""
+          }
           onChange={(event) =>
-            table.getColumn("name")?.setFilterValue(event.target.value)
+            table.getColumn("metadata")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
@@ -106,7 +106,7 @@ export function DataTable<TData, TValue>({
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="rounded-md border mx-4">
+      <div className="rounded-md border mx-2">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

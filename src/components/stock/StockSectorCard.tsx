@@ -4,8 +4,9 @@ import React from "react";
 import { DollarSign } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectorsPerfomance } from "@/types/stocks";
+import { cn } from "@/lib/utils";
 
-export default function StockSegmentCard({
+export default function StockSectorCard({
   sector,
   changesPercentage,
 }: SectorsPerfomance) {
@@ -18,7 +19,14 @@ export default function StockSegmentCard({
       <CardContent>
         <div className="text-2xl font-bold">{sector}</div>
         <p className="text-xs text-muted-foreground">
-          ${changesPercentage} from last month
+          <span
+            className={cn("mr-2 text-green-500", {
+              "text-red-500": changesPercentage[0] === "-",
+            })}
+          >
+            ${changesPercentage}
+          </span>
+          from last month
         </p>
       </CardContent>
     </Card>
