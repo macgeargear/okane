@@ -6,3 +6,5 @@ export const STOCK_STATEMENT_URL = `${FMP_BASE_URL}/income-statement?apikey=${pr
 export const SECTOR_PERFORMANCE_URL = `${FMP_BASE_URL}/sectors-performance?apikey=${process.env.FMP_API_KEY}`;
 export const COMPANYPROFILE_URL = (symbol: string) =>
   `${FMP_BASE_URL}/profile/${symbol}?apikey=${process.env.FMP_API_KEY}`;
+export const COMPANYLOGO_URL = (symbol: string) =>
+  `${FMP_BASE_URL}/image-stock/${symbol}.png?apikey=${process.env.FMP_API_KEY}`;

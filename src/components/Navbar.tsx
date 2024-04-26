@@ -1,12 +1,15 @@
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Link from "next/link";
 import { Icons } from "./Icons";
+import { User, auth, clerkClient } from "@clerk/nextjs/server";
+import { UserButton } from "@clerk/nextjs";
 import { buttonVariants } from "./ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
-export default function Navbar() {
-  const user = null;
+type NavProps = {
+  user?: User;
+};
 
+export default function Navbar({ user }: NavProps) {
   return (
     <div className="bg-white sticky z-50 top-0 inset-x-0 h-16">
       <header className="relative bg-white">
@@ -33,19 +36,6 @@ export default function Navbar() {
                     </Link>
                   )}
                 </div>
-                {user ? null : (
-                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                )}
-                {user ? (
-                  <p></p>
-                ) : (
-                  <Link
-                    href="/sign-up"
-                    className={buttonVariants({ variant: "ghost" })}
-                  >
-                    Create account
-                  </Link>
-                )}
                 {user ? (
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                 ) : null}
@@ -55,10 +45,7 @@ export default function Navbar() {
                   </div>
                 )}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <Avatar>
-                    <AvatarImage src="http://github.com/macgeargear.png" />
-                    <AvatarFallback>Gear</AvatarFallback>
-                  </Avatar>
+                  <UserButton />
                 </div>
               </div>
             </div>
