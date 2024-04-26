@@ -144,3 +144,7 @@ export interface StockScreenerResult {
   isFund: boolean;
   isActivelyTrading: boolean;
 }
+
+// export interface StockScreenerRequest {
+//   marketCapMoreThan;: strin
+// }

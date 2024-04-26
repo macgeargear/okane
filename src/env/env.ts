@@ -11,6 +11,7 @@ const envSchema = z.object({
       z.literal("production"),
     ])
     .default("development"),
+  DATABASE_URL: z.string().url().min(1),
 });
 
 declare global {

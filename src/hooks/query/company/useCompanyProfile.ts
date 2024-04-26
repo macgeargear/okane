@@ -1,5 +1,3 @@
-import { stockScreenReq } from "../../../lib/schema/stock/index";
-import { StockScreenerResult } from "@/types/stocks";
 import { useQuery } from "@tanstack/react-query";
 import { Fetch } from "@/lib/utils";
 import { CompanyProfile } from "@/types/company";

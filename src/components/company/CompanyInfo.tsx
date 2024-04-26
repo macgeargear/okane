@@ -13,14 +13,6 @@ import {
 } from "../ui/card";
 import { formatPrice } from "@/lib/utils";
 import { Badge } from "../ui/badge";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../ui/table";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import CompanyAdditionalInfo from "./CompanyAdditionalInfo";
 
@@ -38,18 +30,19 @@ export default function CompanyInfo({ symbol }: { symbol: string }) {
       <div className="flex items-center gap-4">
         <Button size="icon" variant="outline" onClick={() => router.back()}>
           <ArrowLeft className="h-4 w-4" />
-          <span className="sr-only">Back</span>
         </Button>
-        <Avatar>
+        <Avatar className="bg-muted p-2">
           <AvatarImage src={company.image} alt={company.companyName} />
           <AvatarFallback>{company.companyName[0]}</AvatarFallback>
         </Avatar>
-        <h1 className="font-semibold text-lg md:text-xl">
-          {company?.companyName}
-        </h1>
-        <div className="flex items-center">
-          {company.industry ? <Badge>{company.industry}</Badge> : null}
-          {company.isEtf ? <Badge>Etf</Badge> : null}
+        <div className="flex flex-col">
+          <h1 className="font-semibold text-lg md:text-xl">
+            {company?.companyName}
+          </h1>
+          <div className="flex items-center">
+            {company.industry ? <Badge>{company.industry}</Badge> : null}
+            {company.isEtf ? <Badge>Etf</Badge> : null}
+          </div>
         </div>
       </div>
       <div className="grid gap-6">

@@ -55,7 +55,7 @@ export const columns: ColumnDef<StockScreenerResult>[] = [
         <div className="text-right font-medium">
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="secondary" className="hover:bg-slate-300">
+              <Button variant="secondary" className=" hover:bg-primary">
                 {symbol}
               </Button>
             </PopoverTrigger>
