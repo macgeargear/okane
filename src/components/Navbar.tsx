@@ -1,27 +1,15 @@
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Link from "next/link";
 import { Icons } from "./Icons";
-import { Button, buttonVariants } from "./ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { User, auth, clerkClient } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
 import { UserButton } from "@clerk/nextjs";
+import { buttonVariants } from "./ui/button";
 
-export default async function Navbar() {
-  const { userId } = auth();
-  let user: User | null = null;
-  if (userId) {
-    user = await clerkClient.users.getUser(userId);
-  }
+type NavProps = {
+  user?: User;
+};
 
+export default function Navbar({ user }: NavProps) {
   return (
     <div className="bg-white sticky z-50 top-0 inset-x-0 h-16">
       <header className="relative bg-white">

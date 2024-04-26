@@ -2,13 +2,24 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import StockSectorCard from "@/components/stock/StockSectorCard";
 import StockSectorList from "@/components/stock/StockSectorList";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
-export default function Home() {
+
+export default async function Home() {
+  const user = await currentUser();
+  console.log(user);
   return (
     <>
       <MaxWidthWrapper className="container grid place-content-center">
         <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            Hi{" "}
+            <span className="text-primary">
+              {user?.firstName
+                ? user.firstName
+                : user?.emailAddresses[0].emailAddress.split("@")[0]}
+              !
+            </span>{" "}
             Welcome to Okane{" "}
             <span className="text-gray-600 underline-offset-8 underline">
               お金.
