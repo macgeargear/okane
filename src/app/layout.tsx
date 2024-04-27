@@ -1,5 +1,4 @@
 import QueryProvider from "@/components/QueryProvider";
-import { ClerkProvider } from "@clerk/nextjs";
 
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -21,12 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ClerkProvider>
-          <QueryProvider>
-            <Navbar />
-            {children}
-          </QueryProvider>
-        </ClerkProvider>
+        <QueryProvider>
+          <Navbar />
+          {children}
+        </QueryProvider>
       </body>
     </html>
   );
