@@ -11,6 +11,9 @@ const envSchema = z.object({
       z.literal("production"),
     ])
     .default("development"),
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
+  NEXT_PUBLIC_SUPABASE_URL: z.string().url().min(1),
+  DATABASE_URL: z.string().url().min(1),
 });
 
 declare global {
