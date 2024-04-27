@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "sonner";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -19,6 +20,8 @@ import { ColumnDef } from "@tanstack/react-table";
 
 import { ArrowUpDown, CircleX, SearchCheck } from "lucide-react";
 import Link from "next/link";
+import useAddStock from "@/hooks/query/stock/useAddStock";
+import { addStockToPortfolio } from "@/lib/actions";
 
 export const columns: ColumnDef<StockScreenerResult>[] = [
   {
@@ -51,6 +54,7 @@ export const columns: ColumnDef<StockScreenerResult>[] = [
         symbol: string;
         companyName: string;
       };
+
       return (
         <div className="text-right font-medium">
           <Popover>
@@ -79,7 +83,19 @@ export const columns: ColumnDef<StockScreenerResult>[] = [
                 >
                   see more details
                 </Link>
-                <Button size="sm">add to my list</Button>
+                <Button
+                  size="sm"
+                  onClick={async () => {
+                    await addStockToPortfolio({
+                      symbol,
+                      // TODO: get the user id from the session
+                      userId: "zn8v1pql3s17kzni7td1tm11",
+                    });
+                    toast.success("Added to your list");
+                  }}
+                >
+                  add to my list
+                </Button>
               </div>
             </PopoverContent>
           </Popover>
