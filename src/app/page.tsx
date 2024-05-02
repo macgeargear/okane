@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <MaxWidthWrapper className="container grid place-content-center">
+      <MaxWidthWrapper className="container grid min-h-full place-content-center">
         <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             Welcome to Okane{" "}

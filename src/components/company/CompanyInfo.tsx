@@ -84,9 +84,6 @@ export default function CompanyInfo({ symbol }: { symbol: string }) {
       </div>
       <div className="grid gap-6">
         <Card className="flex flex-col">
-          <CardHeader>
-            <CardTitle>Additional Info</CardTitle>
-          </CardHeader>
           <CardContent>
             <CompanyAdditionalInfo company={company} />
           </CardContent>

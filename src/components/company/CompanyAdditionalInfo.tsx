@@ -28,7 +28,9 @@ export default function CompanyAdditionalInfo({ company }: Props) {
   return (
     <Accordion type="single" collapsible>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Additional Info</AccordionTrigger>
+        <AccordionTrigger className="text-2xl font-semibold leading-none tracking-tight">
+          Additional Info
+        </AccordionTrigger>
         <AccordionContent>
           <Table>
             <TableHeader>
